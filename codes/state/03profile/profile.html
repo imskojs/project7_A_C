@@ -1,0 +1,83 @@
+<ion-view id="profile"
+    cache-view="true"
+    hide-back-button="true"
+>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-android-arrow-back"
+        ng-click="goBack()"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero">
+      내 프로필
+    </p>
+  </ion-nav-title>
+
+  <ion-content class="profile-content">
+
+    <div class="info-container pt-20 light-bg pb-20">
+      <img class="logo block auto w-35"
+        src="img/slidemenu_icon05.png"
+      >
+      <p class="zero center stable f-18 mt-20">
+        닉네임: {{appStorage.user.nickname || 'owen'}}
+      </p>
+      <p class="zero mt-10 f-18 stable center">
+        이메일: {{appStorage.user.email || 'test@test.com'}}
+      </p>
+    </div>
+
+    <div class="change-container auto w-80 pt-20">
+
+      <div class="change-nickname row zero flex-v lighter-bg radius mb-15">
+        <div class="col-auto col-offset-5">
+          <p class="zero positive f-18">
+            닉네임 변경
+          </p>
+        </div>
+        <div class="col zero col-offset-5">
+          <input class="hpx-45 f-18 dark-grey"
+            type="text"
+            ng-model="Profile.Model.form.nickname"
+          >
+        </div>
+      </div>
+
+      <div class="change-nickname row zero flex-v lighter-bg radius mb-15">
+        <div class="col-auto col-offset-5">
+          <p class="zero positive f-18">
+            이메일 변경
+          </p>
+        </div>
+        <div class="col zero col-offset-5">
+          <input class="hpx-45 f-18 dark-grey"
+            type="text"
+            ng-model="Profile.Model.form.email"
+          >
+        </div>
+      </div>
+
+      <div class="change-nickname row zero flex-v lighter-bg radius mb-15 hpx-45">
+        <div class="col-auto col-offset-5">
+          <p class="zero positive f-18">
+            비밀번호 재설정
+          </p>
+        </div>
+        <div class="col zero col-offset-5 pr-5 right">
+          <i class="zero f-18 positive ion-ios-arrow-forward"> </i>
+        </div>
+      </div>
+
+
+      <p class="zero center positive-bg radius f-20 stable pt-15 pb-15"
+        ng-click=""
+      >
+        완료
+      </p>
+
+    </div>
+
+  </ion-content>
+</ion-view>

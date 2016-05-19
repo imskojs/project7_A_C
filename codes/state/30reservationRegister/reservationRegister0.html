@@ -1,0 +1,92 @@
+<ion-view id="reservation-register0" class="reservation-register"
+    cache-view="true"
+    hide-back-button="true"
+>
+
+  <ion-nav-buttons side="left positive">
+    <button class="button button-icon button-positive icon ion-navicon positive"
+      ng-click="toggleSideMenu(true)"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero dark-grey">미팅 예약</p>
+  </ion-nav-title>
+
+  <ion-content class="reservation-register-content">
+
+    <div class="positive-bg pt-10 pb-10 pl-5 pr-5 bold">
+      <p class="stable f-16 mb-10">
+        <span class="f-14">(주)</span> 어플리켓
+      </p>
+      <p class="stable f-14 zero">
+        {{ReservationRegister.Model.reservation.place.address}}
+      </p>
+    </div>
+
+    <div id="staticMap" class="hpx-200 no-click"></div>
+
+    <div class="stable-bg pl-5 pr-5 pt-20 pb-20">
+      <div class="row flex-v">
+        <div class="col-50">
+          <p class="zero f-16 bold">
+            첫번째 미팅이세요?
+          </p>
+        </div>
+
+        <div class="flex-v col-30"
+          ng-click="ReservationRegister.Model.form.firstMeeting = true"
+        >
+          <div class="circle grey-b wpx-20 hpx-20 bw-2 ml-20"
+            ng-class="{selected: ReservationRegister.Model.form.firstMeeting}"
+          >
+          </div>
+          <p class="zero f-14 bold grey ml-5">
+            YES
+          </p>
+        </div>
+        <div class="flex-v col-20"
+          ng-click="ReservationRegister.Model.form.firstMeeting = false"
+        >
+          <div class="circle grey-b wpx-20 hpx-20 bw-2"
+            ng-class="{selected: !ReservationRegister.Model.form.firstMeeting}"
+          >
+          </div>
+          <p class="zero f-14 bold grey ml-5">
+            NO
+          </p>
+        </div>
+      </div>
+
+      <p class="zero grey ml-5 mt-20 bold f-14">
+        성함 or 회사명
+      </p>
+      <input class="grey-bb ml-5 w-90"
+        type="text"
+        ng-model="ReservationRegister.Model.form.clientName"
+      >
+
+      <p class="zero f-14 ml-5 mt-20 grey bold">
+        내용
+      </p>
+      <textarea class="light-grey-bg ml-5 w-90 mhpx-120 p-5"
+        ng-model="ReservationRegister.Model.form.content"
+      >
+      </textarea>
+
+      <button class="button-icon pt-15 pb-15 positive-bg w-90 ml-5 radius mt-30"
+        ng-click="goToState('main.reservationRegister1')"
+      >
+        <p class="zero f-16 center bold stable">
+          예약하기
+        </p>
+      </button>
+    </div>
+
+
+
+
+
+  </ion-content>
+</ion-view>

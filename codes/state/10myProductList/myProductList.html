@@ -1,0 +1,63 @@
+<ion-view id="my-product-list"
+  cache-view="true"
+  hide-back-button="false"
+>
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-android-arrow-back"
+      ng-click="goBack()"
+    >
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <p class="zero">
+      내 견적서
+    </p>
+  </ion-nav-title>
+
+  <ion-content class="pt-5 pb-20">
+    <ion-refresher
+      on-refresh="MyProductList.getNewerProducts()"
+    >
+    </ion-refresher>
+
+    <!-- row -->
+
+    <div class="zero"
+      ng-click="goToState('main.bidList', {
+        product: product.id,
+        to: 'user'
+      })"
+      collection-repeat="product in MyProductList.Model.products"
+      item-width="100%"
+      item-height="85"
+    >
+      <div class="row hpx-80 zero w-90 auto shadow radius light-grey-bg">
+        <div class="col-25">
+          <img class="radius-left w-100 hpx-80"
+            ng-src="{{(product.photos[0].url | cloudinary150) || 'http://placehold.it/150x100' }}"
+          >
+        </div>
+        <div class="col zero col-offset-2 flex-v">
+          <p class="zero f-18">
+            {{product.title || 'test test'}}
+          </p>
+        </div>
+        <div class="col-20 radius-right flex"
+          ng-click="$event.stopPropagation();"
+        >
+          <i class="ion-trash-b f-20 positive"></i>
+        </div>
+      </div>
+    </div>
+
+        <!-- ng-if="MyProductList.checkForMore()" -->
+    <ion-infinite-scroll
+        on-infinite="MyProductList.getOlderProducts()"
+        immediate-check="false"
+        ng-if="MyProductList.Model.more"
+    >
+    </ion-infinite-scroll>
+  </ion-content>
+
+</ion-view>

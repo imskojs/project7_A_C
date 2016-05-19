@@ -1,0 +1,170 @@
+<ion-view id="bid-detail"
+    cache-view="true"
+    hide-back-button="true"
+>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-android-arrow-back"
+      ng-click="goBack()"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero">
+      받은견적
+    </p>
+  </ion-nav-title>
+
+
+  <ion-content class="bid-detail-content pt-2">
+
+    <ion-refresher
+      on-refresh="BidDetail.getBid()"
+    >
+    </ion-refresher>
+
+    <ion-slide-box class="app-slide-box"
+      show-pager="true"
+    >
+        <ion-slide class="app-slide"
+            ng-repeat="productPhoto in BidDetail.Model.bid.product.photos"
+        >
+            <img class="app-slide-image"
+                ng-src="{{productPhoto.url}}"
+            >
+        </ion-slide>
+    </ion-slide-box>
+
+    <p class="zero f-18 pl-5 mt-10 mb-10">
+      {{ BidDetail.Model.bid.product.name }}
+    </p>
+
+    <div class="row zero w-90 auto mb-7 mt-0">
+      <div class="col-30">
+        <p class="zero dark-grey f-16">
+          견적 요청자
+        </p>
+      </div>
+      <div class="col zero">
+        <p class="zero f-16">
+          {{ BidDetail.Model.bid.createdBy.nickname }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row zero w-90 auto mb-7 mt-0">
+      <div class="col-30">
+        <p class="zero dark-grey f-16">
+          견적 요청일
+        </p>
+      </div>
+      <div class="col zero">
+        <p class="zero f-16">
+          {{ BidDetail.Model.bid.createdAt }}
+        </p>
+      </div>
+    </div>
+    <div class="row zero w-90 auto mb-7 mt-0">
+      <div class="col-30">
+        <p class="zero dark-grey f-16">
+          브랜드
+        </p>
+      </div>
+      <div class="col zero">
+        <p class="zero f-16">
+          {{ BidDetail.Model.bid.product.brand }}
+        </p>
+      </div>
+    </div>
+    <div class="row zero w-90 auto mb-7 mt-0">
+      <div class="col-30">
+        <p class="zero dark-grey f-16">
+          구입시기
+        </p>
+      </div>
+      <div class="col zero">
+        <p class="zero f-16">
+          {{ BidDetail.Model.bid.product.boughtAt }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row zero w-90 auto mb-17 mt-0">
+      <div class="col-30">
+        <p class="zero dark-grey f-16">
+          상태
+        </p>
+      </div>
+      <div class="col zero">
+        <p class="zero f-16">
+          {{ BidDetail.Model.bid.product.condition }}
+        </p>
+      </div>
+    </div>
+
+    <div class="bid-detail light-grey-bg pt-15 pl-5 pr-5 pb-40">
+      <p class="zero f-16 mb-15 dark-grey center">
+        <span class="positive">{{BidDetail.Model.bid.place.name}}</span>
+        로부터 받은 견적 내역입니다
+      </p>
+      <div class="positive-b pt-15 stable-bg pb-15">
+        <p class="zero f-20 mb-15 positive center bold">
+          견적서
+        </p>
+
+        <div class="row zero grey-b mb-5 mt-0 w-90 auto pl-5 pr-5">
+          <div class="col-auto pt-8 pb-8">
+            <p class="zero positive f-18">
+              금액
+            </p>
+          </div>
+          <div class="col zero pt-8 pb-8">
+            <p class="zero f-18 right">
+              <span class="red">{{BidDetail.Model.bid.price | number}}</span> 원
+            </p>
+          </div>
+        </div>
+
+        <div class="row zero grey-b mb-5 mt-0 w-90 auto pl-5 pr-5">
+          <div class="col-auto pt-8 pb-8">
+            <p class="zero positive f-18">
+              월이율
+            </p>
+          </div>
+          <div class="col zero pt-8 pb-8">
+            <p class="zero f-18 right">
+              {{BidDetail.Model.bid.monthlyInterest}} %
+            </p>
+          </div>
+        </div>
+
+        <div class="row zero grey-b mb-5 mt-0 w-90 auto pl-5 pr-5">
+          <div class="col-auto pt-8 pb-8">
+            <p class="zero positive f-18">
+              기간
+            </p>
+          </div>
+          <div class="col zero pt-8 pb-8">
+            <p class="zero f-18 right">
+              {{BidDetail.Model.bid.duration}} 개월
+            </p>
+          </div>
+        </div>
+
+        <div class="row zero grey-b mb-5 mt-0 w-90 auto pl-5 pr-5">
+          <div class="col-auto pt-8 pb-8">
+            <p class="zero positive f-18">
+              출장서비스 유무
+            </p>
+          </div>
+          <div class="col zero pt-8 pb-8">
+            <p class="zero f-18 right">
+              {{BidDetail.Model.bid.canPickUp}}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

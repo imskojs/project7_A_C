@@ -1,0 +1,88 @@
+<ion-view id="post-list"
+    cache-view="true"
+    hide-back-button="true"
+>
+
+  <ion-nav-buttons side="left positive">
+    <button class="button button-icon button-positive icon ion-navicon positive"
+      ng-click="toggleSideMenu(true)"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero dark-grey">디자인 팀</p>
+  </ion-nav-title>
+
+  <ion-content class="post-list">
+
+    <ion-refresher
+      on-refresh="PostList.getNewerPosts()"
+    >
+    </ion-refresher>
+
+    <!-- row -->
+    <div class="zero grey-bb grey-bt"
+      collection-repeat="post in PostList.Model.posts"
+      item-width="100%"
+      item-height="PostList.dynamicStyle(post).height"
+    >
+      <div class="row zero hpx-80 flex-v mt-0 grey-bb"
+        ng-click="goToState('main.postDetail', {
+          category: getParam('category'),
+          id: post.id
+        })"
+      >
+        <div class="col-auto ml-3">
+          <img class="hpx-40 wpx-40"
+            ng-src="img/applicat_icon_360.png">
+        </div>
+        <div class="col zero ml-5">
+          <p class="zero dark-grey f-18 text-overflow bold">
+            {{post.createdBy}}
+          </p>
+          <p class="zero grey f-14 mt-8 space text-overflow bold">
+            {{post.content}}
+          </p>
+        </div>
+        <div class="col-20 flex">
+          <p class="zero positive bold f-16">
+            {{post.priority | appText}}
+          </p>
+        </div>
+      </div>
+
+      <div class="row zero mt-0 light-grey-bg hpx-79 flex-v"
+        ng-if="post.reply"
+      >
+        <div class="col-1 hpx-79 positive-bg"></div>
+        <div class="col-20 flex">
+          <i class="ion-checkmark f-25 positive"></i>
+        </div>
+        <div class="col zero">
+          <p class="zero f-16 dark-grey bold">
+            {{post.reply.createdBy}} {{post.reply.position}} 답변입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+        <!-- ng-if="PostList.checkForMore()" -->
+    <ion-infinite-scroll
+        on-infinite="PostList.getOlderPosts()"
+        immediate-check="false"
+        ng-if="PostList.Model.more"
+    >
+    </ion-infinite-scroll>
+
+
+  </ion-content>
+  <div class="absolute bottom-20 right-20 circle wpx-70 hpx70 flex shadow"
+    ng-click="PostList.writeModal.show();"
+  >
+
+    <img class="wpx-70 hpx-70"
+      src="img/icon45.png" alt="">
+  </div>
+</ion-view>

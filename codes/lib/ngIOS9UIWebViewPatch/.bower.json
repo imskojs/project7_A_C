@@ -1,0 +1,13 @@
+{
+  "name": "ngIOS9UIWebViewPatch",
+  "homepage": "https://github.com/imskojs/ngIOS9UIWebViewPatch",
+  "_release": "26fd9f2a6a",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "26fd9f2a6a5a6ed2b3e1de7ec3b930dc18942f91"
+  },
+  "_source": "https://github.com/imskojs/ngIOS9UIWebViewPatch.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/imskojs/ngIOS9UIWebViewPatch.git"
+}

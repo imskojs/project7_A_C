@@ -1,0 +1,124 @@
+<ion-view id="reservation-register1" class="reservation-register"
+    cache-view="true"
+    hide-back-button="true"
+>
+
+  <ion-nav-buttons side="left positive">
+    <button class="button button-icon button-positive icon ion-navicon positive"
+      ng-click="toggleSideMenu(true)"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero dark-grey">미팅 예약</p>
+  </ion-nav-title>
+
+  <ion-content class="reservation-register-content">
+    <div class="row zero stable-bg pt-30 pb-30">
+      <div class="col zero ml-5 flex">
+        <div class="circle dark-grey-bg wpx-50 hpx-50 flex"
+          ng-click="ReservationRegister1.Model.form.selectedDate = 'monday'"
+          ng-class="{selected: ReservationRegister1.Model.form.selectedDate === 'monday'}"
+        >
+          <p class="zero f-22 stable">
+            월
+          </p>
+        </div>
+      </div>
+      <div class="col zero flex">
+        <div class="circle dark-grey-bg wpx-50 hpx-50 flex"
+          ng-click="ReservationRegister1.Model.form.selectedDate = 'tuesday'"
+          ng-class="{selected: ReservationRegister1.Model.form.selectedDate === 'tuesday'}"
+        >
+          <p class="zero f-22 stable">
+            화
+          </p>
+        </div>
+      </div>
+      <div class="col zero flex">
+        <div class="circle dark-grey-bg wpx-50 hpx-50 flex"
+          ng-click="ReservationRegister1.Model.form.selectedDate = 'wednesday'"
+          ng-class="{selected: ReservationRegister1.Model.form.selectedDate === 'wednesday'}"
+        >
+          <p class="zero f-22 stable">
+            수
+          </p>
+        </div>
+      </div>
+      <div class="col zero flex">
+        <div class="circle dark-grey-bg wpx-50 hpx-50 flex"
+          ng-click="ReservationRegister1.Model.form.selectedDate = 'thursday'"
+          ng-class="{selected: ReservationRegister1.Model.form.selectedDate === 'thursday'}"
+        >
+          <p class="zero f-22 stable">
+            목
+          </p>
+        </div>
+      </div>
+      <div class="col zero mr-5 flex">
+        <div class="circle dark-grey-bg wpx-50 hpx-50 flex"
+          ng-click="ReservationRegister1.Model.form.selectedDate = 'friday'"
+          ng-class="{selected: ReservationRegister1.Model.form.selectedDate === 'friday'}"
+        >
+          <p class="zero f-22 stable">
+            금
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row zero pt-40 pb-40 flex-v blue-bg mt-0"
+      ng-click="ReservationRegister.Model.form.time = '10:00'"
+    >
+      <div class="col zero ml-10">
+        <p class="zero f-30 stable bold">
+          10:00
+        </p>
+      </div>
+      <div class="col-17 flex-v hide"
+        ng-class="{show: ReservationRegister.Model.form.time === '10:00'}"
+      >
+        <i class="ion-checkmark f-28 stable"></i>
+      </div>
+    </div>
+
+    <div class="row zero pt-40 pb-40 flex-v green-bg mt-0"
+      ng-click="ReservationRegister.Model.form.time = '14:00'"
+    >
+      <div class="col zero ml-10">
+        <p class="zero f-30 stable bold">
+          14:00
+        </p>
+      </div>
+      <div class="col-17 flex-v hide"
+        ng-class="{show: ReservationRegister.Model.form.time === '14:00'}"
+      >
+        <i class="ion-checkmark f-28 stable"></i>
+      </div>
+    </div>
+
+    <div class="row zero pt-40 pb-40 flex-v aqua-bg mt-0"
+      ng-click="ReservationRegister.Model.form.time = '16:00'"
+    >
+      <div class="col zero ml-10">
+        <p class="zero f-30 stable bold">
+          16:00
+        </p>
+      </div>
+      <div class="col-17 flex-v hide"
+        ng-class="{show: ReservationRegister.Model.form.time === '16:00'}"
+      >
+        <i class="ion-checkmark f-28 stable"></i>
+      </div>
+    </div>
+
+    <button class="button-icon pt-15 pb-15 positive-bg w-90 ml-5 radius mt-30"
+      ng-click="goToState('main.reservationRegister1')"
+    >
+      <p class="zero f-16 center bold stable">
+      예약완료
+      </p>
+    </button>
+  </ion-content>
+</ion-view>

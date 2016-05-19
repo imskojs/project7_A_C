@@ -1,0 +1,24 @@
+$lighter:                         #fff !default;
+$light:                           #90caf9 !default;
+$stable:                          #fff !default;
+$positive:                        red !default;
+$calm:                            #0f489e !default;
+// $balanced:                        #33cd5f !default;
+// $energized:                       #ffc900 !default;
+$assertive:                       #e1053e !default;
+// $royal:                           #886aea !default;
+$dark:                            #104e80 !default;
+$light-grey:                      #f0f0f0 !default;
+$grey:                            #a2a2a2 !default;
+$dark-grey:                       #666 !default;
+
+$red:                             red !default;
+
+$blue:                            blue !default;
+$green:                           green !default;
+$aqua:                            aqua !default;
+
+$ionicons-font-path: "../fonts" !default;
+
+@import "codes/lib/ionic/scss/ionic";
+

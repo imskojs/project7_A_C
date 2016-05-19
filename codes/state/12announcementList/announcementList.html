@@ -1,0 +1,76 @@
+<ion-view id="announcement-list"
+    cache-view="true"
+    hide-back-button="true"
+>
+
+  <ion-nav-buttons side="left positive">
+    <button class="button button-icon icon ion-navicon "
+      ng-click="toggleSideMenu(true)"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero dark-grey">
+      {{getParam('category') | appText}}
+    </p>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+  <button class="button-icon ion-ios-search-strong"
+    ng-click=""
+  >
+  </button>
+  </ion-nav-buttons>
+
+
+  <ion-content class="announcement-list-content pt-2">
+
+    <ion-refresher
+      on-refresh="AnnouncementList.getNewerPosts()"
+    >
+    </ion-refresher>
+
+    <!-- row -->
+    <div class="zero"
+      ng-click="goToState('main.announcementDetail', {
+        category: getParam('category'),
+        id: post.id
+      })"
+      collection-repeat="post in AnnouncementList.Model.posts"
+      item-width="100%"
+      item-height="500"
+    >
+      <div class="w-90 auto mt-5 shadow hpx-600">
+
+        <img class="w-100 hpx-220 block"
+          ng-src="{{post.photos[0].url}}"
+        >
+        <p class="zero w-80 auto f-16 pre mt-20">
+          {{post.title}}
+        </p>
+        <p class="zero w-80 auto f-16 pre dark-grey post-con">
+          {{post.content}}
+        </p>
+
+        <div class="row zero w-85 auto mt-35 pb-25">
+          <div class="col-auto pt-3 pb-3 pl-10 pr-10 positive-bg r-30">
+            <p class="zero bold f-14 stable">
+              test
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div> <!-- collection repeat end -->
+
+        <!-- ng-if="AnnouncementList.checkForMore()" -->
+    <ion-infinite-scroll
+        on-infinite="AnnouncementList.getOlderPosts()"
+        immediate-check="false"
+        ng-if="AnnouncementList.Model.more"
+    >
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

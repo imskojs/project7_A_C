@@ -1,0 +1,45 @@
+<ion-view id="product-list"
+    cache-view="true"
+    hide-back-button="true"
+>
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-navicon"
+      ng-click="toggleSideMenu(true)"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero">OhShop</p>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios-search-strong"
+      ng-click=""
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-header-bar class="bar-subheader zero stable-bg">
+    <div class="row zero w-90 auto flex hpx-44 grey-bg">
+      <div class="col-10 flex"
+        ng-click="ProductList.searchProduct()"
+      >
+        <i class="ion-search f-18"></i>
+      </div>
+      <div class="col-80 stable-bg">
+        <input class="hpx-33 placeholder-f-16 placeholder-grey pt-5 f-16 pl-5"
+          type="text"
+          placeholder="물품명을 섬색해주세요"
+          ng-model="ProductList.searchWord"
+          ng-enter="ProductList.searchProduct();"
+        >
+      </div>
+    </div>
+  </ion-header-bar>
+
+  <ion-content class="product-list-content">
+    <p>product-list</p>
+  </ion-content>
+</ion-view>

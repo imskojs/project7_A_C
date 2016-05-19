@@ -1,0 +1,156 @@
+<ion-view id="sign-up"
+  cache-view="true"
+  hide-back-button="true"
+>
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-android-arrow-back"
+        ng-click="goBack()"
+    >
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <p class="zero"
+      ng-if="isParam({userType: 'user'})"
+    >
+      일반 회원가입
+    </p>
+    <p class="zero"
+      ng-if="isParam({userType: 'shop'})"
+    >
+      점포 가입 요청서
+    </p>
+  </ion-nav-title>
+
+  <ion-content class="sign-up-content pl-7 pr-7 pt-1">
+
+  <!-- USER ONLY -->
+    <div class="for-user"
+      ng-if="isParam({userType: 'user'})"
+    >
+      <p class="zero grey f-14 mt-15">닉네임 입력</p>
+      <div class="row-nickname row-input row zero flex grey-bb">
+        <div class="col-nickname-input col zero">
+          <input class="input-nickname positive f-16" type="text"
+            ng-model="SignUp.Model.form.nickname"
+          >
+        </div>
+        <div class="col-30 col-nickname-icon">
+          <p class="zero positive-bg center stable pt-3 pb-3 mb-3 radius col-offset-5">
+            중복확인
+          </p>
+        </div>
+      </div>
+
+      <p class="zero grey f-14 mt-15">이메일 입력</p>
+      <div class="row-email row-input row zero flex grey-bb">
+        <div class="col-email-input col zero">
+          <input class="input-email positive f-16" type="email"
+            ng-model="SignUp.Model.form.email"
+          >
+        </div>
+        <div class="col-30 col-email-icon">
+          <p class="zero positive-bg center stable pt-3 pb-3 mb-3 radius col-offset-5">
+            중복확인
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOP ONLY -->
+    <div class="for-shop"
+      ng-if="isParam({userType: 'shop'})"
+    >
+      <p class="zero grey f-14 mt-15">점포명</p>
+      <div class="row-shop row-input row zero flex grey-bb">
+        <div class="col-shop-input col zero">
+          <input class="input-shop positive f-16" type="text"
+            ng-model="SignUp.Model.form.shop"
+          >
+        </div>
+      </div>
+
+      <p class="zero grey f-14 mt-15">메일주소</p>
+      <div class="row-email row-input row zero flex grey-bb">
+        <div class="col-email-input col zero">
+          <input class="input-email positive f-16" type="email"
+            ng-model="SignUp.Model.form.email"
+          >
+        </div>
+        <div class="col-30 col-email-icon">
+          <p class="zero positive-bg center stable pt-3 pb-3 mb-3 radius col-offset-5">
+            중복확인
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- SHOP ONLY ENDS -->
+
+    <p class="zero grey f-14 mt-15">비밀번호 입력</p>
+    <div class="row-password row-input row zero flex grey-bb">
+      <div class="col-password-input col zero">
+        <input class="input-password positive f-16" type="password"
+          ng-model="SignUp.Model.form.password"
+        >
+      </div>
+    </div>
+
+    <p class="zero grey f-14 mt-15">비밀번호 재입력</p>
+    <div class="row-password row-input row zero flex grey-bb">
+      <div class="col-password-input col zero">
+        <input class="input-password positive f-16" type="password"
+          ng-model="SignUp.Model.confirmPassword"
+        >
+      </div>
+    </div>
+
+    <!-- SHOP ONLY -->
+    <div class="for-shop"
+      ng-if="isParam({userType: 'shop'})"
+    >
+
+      <p class="zero grey f-14 mt-15">핸드폰 번호</p>
+      <div class="row-cell-phone row-input row zero flex grey-bb">
+        <div class="col-cell-phone-input col zero">
+          <input class="input-cell-phone positive f-16" type="number"
+            ng-model="SignUp.Model.form.cellPhone"
+          >
+        </div>
+      </div>
+
+      <p class="zero grey f-14 mt-15">전화번호</p>
+      <div class="row-phone row-input row zero flex grey-bb">
+        <div class="col-phone-input col zero">
+          <input class="input-phone positive f-16" type="number"
+            ng-model="SignUp.Model.form.phone"
+          >
+        </div>
+      </div>
+
+      <p class="zero grey f-14 mt-15">대부업등록번호</p>
+      <div class="row-company-number row-input row zero flex grey-bb">
+        <div class="col-company-number-input col zero">
+          <input class="input-company-number positive f-16" type="text"
+            ng-model="SignUp.Model.form.companyNumber"
+          >
+        </div>
+      </div>
+
+      <p class="zero grey f-14 mt-15">주소</p>
+      <div class="row-address row-input row zero flex grey-bb">
+        <div class="col-address-input col zero">
+          <input class="input-address positive f-16" type="text"
+            ng-model="SignUp.Model.form.address"
+          >
+        </div>
+      </div>
+    </div>
+
+    <p class="zero center positive-bg radius f-20 stable pt-15 pb-15 mt-15"
+      ng-click="SignUp.signUp( getParam('userType') )"
+    >
+      완료
+    </p>
+  </ion-content>
+</ion-view>

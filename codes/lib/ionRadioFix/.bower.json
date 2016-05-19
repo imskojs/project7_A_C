@@ -1,0 +1,13 @@
+{
+  "name": "ionRadioFix",
+  "homepage": "https://github.com/imskojs/ionRadioFix",
+  "_release": "0fdf7df94c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "0fdf7df94c21f013d53a7488c5229e34aa11e31e"
+  },
+  "_source": "https://github.com/imskojs/ionRadioFix.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/imskojs/ionRadioFix.git"
+}

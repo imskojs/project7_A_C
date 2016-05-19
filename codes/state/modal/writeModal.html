@@ -1,0 +1,87 @@
+<ion-modal-view id="write-modal">
+  <ion-content class="write-modal-content">
+
+    <div class="w-90 auto mt-50 stable-bg rt-10 rb-10 pt-5 pb-15 pl-5 pr-5">
+      <div class="row zero end">
+        <div class="col-auto">
+          <button class="button-icon ion-ios-close-empty dark-grey f-40"
+            ng-click="PostList.writeModal.hide();"
+          >
+          </button>
+        </div>
+      </div>
+
+      <p class="zero grey f-16 bold mt-10">
+        제목
+      </p>
+      <input class="f-16 hpx-30 grey-bb mt-10 pb-5"
+        type="text"
+      >
+
+      <p class="zero grey f-16 bold mt-20 mb-5">
+       내용
+      </p>
+
+      <textarea class="hpx-200 light-grey-bg w-100 p-5">
+      </textarea>
+
+
+      <div class="row flex-v mt-20">
+        <div class="col-auto">
+          <p class="zero f-16 bold grey">
+            중요도
+          </p>
+        </div>
+
+        <div class="flex-v col zero ml-10"
+          ng-click="PostList.Model.form.priority = 'low'"
+        >
+          <div class="circle grey-b wpx-16 hpx-16 bw-2 ml-20"
+            ng-class="{'selected-positive-bg': PostList.Model.form.priority === 'low'}"
+          >
+          </div>
+          <p class="zero f-14 bold grey ml-5 right">
+            LOW
+          </p>
+        </div>
+
+        <div class="flex-v col zero"
+          ng-click="PostList.Model.form.priority = 'mid'"
+        >
+          <div class="circle grey-b wpx-16 hpx-16 bw-2 ml-20"
+            ng-class="{'selected-positive-bg': PostList.Model.form.priority === 'mid'}"
+          >
+          </div>
+          <p class="zero f-14 bold grey ml-5 right">
+            MID
+          </p>
+        </div>
+
+        <div class="flex-v col zero"
+          ng-click="PostList.Model.form.priority = 'high'"
+        >
+          <div class="circle grey-b wpx-16 hpx-16 bw-2 ml-20"
+            ng-class="{'selected-positive-bg': PostList.Model.form.priority === 'high'}"
+          >
+          </div>
+          <p class="zero f-14 bold grey ml-5 right">
+            HIGH
+          </p>
+        </div>
+      </div>
+
+      <p class="zero center grey center space f-11 bold mt-20">
+        * 모든 게시글은 비공개로 다른 사람이 열람 할 수 없습니다.
+      </p>
+
+
+      <button class="button-icon pt-13 pb-13 positive-bg w-100 radius mt-15"
+        ng-click="goToState('main.reservationRegister1')"
+      >
+        <p class="zero f-16 center bold stable">
+          등록
+        </p>
+      </button>
+    </div>
+  </ion-content>
+</ion-modal-view>
